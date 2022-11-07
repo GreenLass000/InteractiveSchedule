@@ -6,7 +6,6 @@ ctx.canvas.height = windowHeight;
 setInterval(update, 1 / fps * 1000);
 
 function update() {
-
     ctx.clearRect(0, 0, windowWidth, windowHeight);
 
     //Barra de progreso
@@ -26,19 +25,6 @@ function update() {
         20
     );
     ctx.fillStyle = color[1];
-    ctx.stroke();
-    ctx.fill();
-
-    //Cuadro asignatura siguiente
-    ctx.roundRect(
-        windowWidth / 8 * 3,    //x
-        windowHeight / 2.3,    //y
-        windowWidth / 4,        //width
-        windowHeight / 10,      //height
-        20
-    );
-
-    ctx.fillStyle = color[2];
     ctx.stroke();
     ctx.fill();
 
