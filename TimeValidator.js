@@ -1,32 +1,6 @@
-const version = "v1.2";
-
-const DI = "Interfaces";
-const SGE = "Sistemas de Gestión Empresarial";
-const AD = "Acceso a Datos";
-const PMDM = "Moviles";
-const EIE = "Empresa";
-const PSP = "Procesos";
-const REC = "Recreo";
-
-const horario = [
-    [],
-    [DI, DI, SGE, REC, SGE, AD, AD],
-    [PMDM, PMDM, EIE, REC, EIE, SGE, SGE],
-    [PSP, PSP, AD, REC, AD, DI, DI],
-    [DI, DI, PMDM, REC, PMDM, AD, AD],
-    [PSP, EIE, SGE, REC, SGE, PMDM, PMDM],
-    []
-];
-
-// [ FondoGeneral, Cuadro1, Cuadro2, Texto1, Texto2, BarraFondo, BarraCarga]
-const color = ["#EADEDA", "#46A2E8", "#46A2E8", "#FF6666", "#FF6666"];
-
 document.body.style.backgroundColor = color[0];
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-setInterval(start, 1000);
+setInterval(start, 1 / fps * 1000);
 function start() {
     //--------------console.log(horario--------------
     //Comprueba si una console.log(hora con formato hh:mm esta en un rango de console.log(horas
@@ -39,21 +13,17 @@ function start() {
     // let timeNow = new Date('November 15, 2022 12:00:00');
     // let timeNowFormat = "11:00";
 
-    let timeNow = new Date();
+    timeNow = new Date();
     //Recoge la hora actual del sistema en formato hh:mm
     let timeNowFormat = timeNow.toLocaleTimeString('default', {
         hour: '2-digit',
         minute: '2-digit',
     });
 
-    let asignaturaActual = "Casa";
-    let asignaturaSiguiente = "";
-
     //Selector de asignatura actual y siguiente
     if (timeNow.getDay() == 0) {
         asignaturaSiguiente = horario[1][0];
-    } else if (timeNow.getDay() == 6) {
-    } else {
+    } else if (timeNow.getDay() != 6) {
         if (isBetween(timeNowFormat, "08:15", "09:05"))
             asigarAsignatura(0);
         else if (isBetween(timeNowFormat, "09:05", "10:00"))
@@ -71,80 +41,25 @@ function start() {
         else {
             asignaturaActual = "Casa";
         }
+    } else {
+        console.log("Hola");
     }
-    function asigarAsignatura(value) {
-        asignaturaActual = horario[timeNow.getDay()][value];
-        asignaturaSiguiente = value == 6 ? "Casa" : horario[timeNow.getDay()][value + 1];
-    }
+}
 
-    //--------------Canvas--------------
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+//Extrae la asignatura del horario ap artir de la hora
+function asigarAsignatura(value) {
+    asignaturaActual = horario[timeNow.getDay()][value];
+    asignaturaSiguiente = value == 6 ? "Casa" : horario[timeNow.getDay()][value + 1];
+}
 
-    ctx.canvas.width = windowWidth;
-    ctx.canvas.height = windowHeight;
+//Devuelve la asignatura actual
+function getAsignaturaActual() {
+    return asignaturaActual;
+}
 
-    //Cuadrado asignatura actual
-    ctx.roundRect(
-        windowWidth / 4,    //x
-        windowHeight / 7,   //y
-        windowWidth / 2,    //width
-        windowHeight / 5,   //height
-        20
-    );
-    ctx.fillStyle = color[1];
-    ctx.stroke();
-    ctx.fill();
-
-    //Cuadro asignatura siguiente
-    ctx.roundRect(
-        windowWidth / 8 * 3,    //x
-        windowHeight / 2.3,    //y
-        windowWidth / 4,        //width
-        windowHeight / 10,      //height
-        20
-    );
-    ctx.fillStyle = color[2];
-    ctx.stroke();
-    ctx.fill();
-
-    //Asignatura actual
-    ctx.font = "bold 30px Arial";
-    ctx.fillStyle = color[3];
-    ctx.textAlign = "center";
-    ctx.fillText(
-        asignaturaActual.toUpperCase(),
-        windowWidth / 2,
-        windowHeight / 4
-    );
-
-    //Asignatura siguiente
-    ctx.font = "20px Arial";
-    ctx.fillStyle = color[4];
-    ctx.textAlign = "center";
-    ctx.fillText(
-        asignaturaSiguiente.toUpperCase(),
-        windowWidth / 2,
-        windowHeight / 2.01
-    );
-
-    //Version text
-    ctx.font = "15px Arial";
-    ctx.fillStyle = "#000";
-    ctx.textAlign = "center";
-    ctx.fillText(
-        version,
-        15,
-        15
-    );
-
-    //Barra de progreso
-    ctx.progressBar(
-        windowWidth / 8,
-        windowHeight / 1.6,
-        windowWidth / 4 * 3, windowHeight / 25,
-        timeRest("")
-    );
+//Devuelve la asignatura siguiente
+function getAsignaturaSiguiente() {
+    return asignaturaSiguiente;
 }
 
 //Devuelve cuanto tiempo falta para que termine la clase actual en porcentaje
