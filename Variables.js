@@ -1,5 +1,7 @@
 const version = "v1.2";
 
+const ratio = 16 / 9;
+
 const fps = 30;
 
 const DI = "Interfaces";
@@ -22,10 +24,7 @@ const horario = [
     []
 ];
 
-// [ FondoGeneral, Cuadro1, Cuadro2, Texto1, Texto2, BarraFondo, BarraCarga]
-const color = ["#EADEDA", "#46A2E8", "#46A2E8", "#FF6666", "#FF6666"];
+// [ FondoGeneral, Cuadro1, Cuadro2, Texto1, Texto2, BarraCarga]
+const color = ["#000", "#46A2E8", "#46A2E8", "#FF6666", "#FF6666"];
 let asignaturaActual = "Casa";
 let asignaturaSiguiente = "";
-
-const windowWidth = window.innerWidth;
-const windowHeight = window.innerHeight;

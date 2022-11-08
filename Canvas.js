@@ -1,11 +1,15 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-ctx.canvas.width = windowWidth;
-ctx.canvas.height = windowHeight;
 setInterval(update, 1 / fps * 1000);
 
 function update() {
+    const windowWidth = sizeScaled()[0];
+    const windowHeight = sizeScaled()[1];
+
+    ctx.canvas.width = windowWidth;
+    ctx.canvas.height = windowHeight;
+
     ctx.clearRect(0, 0, windowWidth, windowHeight);
 
     //Barra de progreso
@@ -19,9 +23,9 @@ function update() {
     //Cuadrado asignatura actual
     ctx.roundRect(
         windowWidth / 4,    //x
-        windowHeight / 7,   //y
+        windowHeight / 4,   //y
         windowWidth / 2,    //width
-        windowHeight / 5,   //height
+        windowHeight / 4,   //height
         20
     );
     ctx.fillStyle = color[1];
