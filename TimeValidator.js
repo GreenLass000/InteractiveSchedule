@@ -24,20 +24,34 @@ function start() {
     if (timeNow.getDay() == 0) {
         asignaturaSiguiente = horario[1][0];
     } else if (timeNow.getDay() != 6) {
-        if (isBetween(timeNowFormat, "08:15", "09:05"))
+        if (isBetween(timeNowFormat, "08:15", "09:05")) {
             asigarAsignatura(0);
-        else if (isBetween(timeNowFormat, "09:05", "10:00"))
+            endTime = "09:05";
+        }
+        else if (isBetween(timeNowFormat, "09:05", "10:00")) {
             asigarAsignatura(1);
-        else if (isBetween(timeNowFormat, "10:00", "10:55"))
+            endTime = "10:00";
+        }
+        else if (isBetween(timeNowFormat, "10:00", "10:55")) {
             asigarAsignatura(2);
-        else if (isBetween(timeNowFormat, "10:55", "11:20"))
+            endTime = "10:55";
+        }
+        else if (isBetween(timeNowFormat, "10:55", "11:20")) {
             asigarAsignatura(3);
-        else if (isBetween(timeNowFormat, "11:20", "12:10"))
+            endTime = "11:20";
+        }
+        else if (isBetween(timeNowFormat, "11:20", "12:10")) {
             asigarAsignatura(4);
-        else if (isBetween(timeNowFormat, "12:10", "13:05"))
+            endTime = "12:10";
+        }
+        else if (isBetween(timeNowFormat, "12:10", "13:05")) {
             asigarAsignatura(5);
-        else if (isBetween(timeNowFormat, "13:05", "14:00"))
+            endTime = "13:05";
+        }
+        else if (isBetween(timeNowFormat, "13:05", "14:00")) {
             asigarAsignatura(6);
+            endTime = "14:00";
+        }
         else {
             asignaturaActual = "Casa";
             asignaturaSiguiente = (timeNowFormat > "14:00")

@@ -57,7 +57,7 @@ function update() {
         windowHeight / 1.55,
         windowWidth / 2 - windowWidth * .1,
         windowHeight / 25,
-        timeRest("")
+        timeRest(endTime)
     );
 
     canvasLogicStart(windowWidth, windowHeight);

@@ -46,12 +46,26 @@ function getAsignaturaSiguiente() {
 }
 
 /**
- * 
+ * Metodo que devuelve el tiempo en minutos entre dos fechas en formato `HH:mm`
  * @param {String} endTime Hora en formato `HH:mm` a la que acaba la asignatura
  * @returns Cuánto tiempo falta para que termine la clase actual en porcentaje
  */
 function timeRest(endTime) {
+    timeNow = new Date();
+    //Recoge la hora actual del sistema en formato hh:mm
+    let timeNowFormat = timeNow.toLocaleTimeString('default', {
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+
+    let timeRestant = minutesDif(endTime, timeNowFormat);
+    console.log(timeRestant);
     return new Date().getSeconds() * 100 / 60;
+}
+
+function minutesDif(start, end) {
+    return ((start.split(":")[0] * 60) + start.split(":")[1])
+        - ((end.split(":")[0] * 60) + end.split(":")[1]);
 }
 
 /**
@@ -61,21 +75,5 @@ function timeRest(endTime) {
  * @returns Asignatura abreviada
  */
 function getShortDay(signature) {
-    switch (signature) {
-        case "Interfaces":
-            return "DI";
-        case "Gestión Empresarial":
-            return "SGE";
-        case "Acceso a Datos":
-            return "AD";
-        case "Moviles":
-            return "PMDM";
-        case "Empresa":
-            return "EIE";
-        case "Procesos":
-            return "PSP";
-        case "Recreo":
-            return "REC";
-        default:
-    }
+    return Asignaturas[signature];
 }
