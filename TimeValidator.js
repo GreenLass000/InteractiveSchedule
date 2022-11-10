@@ -6,7 +6,7 @@ function start() {
     //Comprueba si una console.log(hora con formato hh:mm esta en un rango de console.log(horas
     const isBetween = function (time, start, end) {
         if (time < '00:00' || time > '23:59' || time.substring(3) > '59')
-            throw 'console.log(hora no válida';
+            throw new Error("hora no válida");
         return time >= start && time <= end;
     }
 
@@ -40,29 +40,29 @@ function start() {
             asigarAsignatura(6);
         else {
             asignaturaActual = "Casa";
+            asignaturaSiguiente = (timeNowFormat > "14:00")
+                ? horario[timeNow.getDay() + 1][0]
+                : horario[timeNow.getDay()][0];
+
+            asignaturaAnterior = (timeNowFormat > "14:00")
+                ? horario[timeNow.getDay()][6]
+                : horario[timeNow.getDay() - 1][6];
         }
-    } else {
-        console.log("Hola");
     }
 }
 
-//Extrae la asignatura del horario ap artir de la hora
+//Extrae la asignatura del horario partir de la hora
+/**
+ * Extrae la asignatura del horario a partir de una posicion y el dia de la semana
+ * @param {Number} value Posicion desde donde se extraerá la asignatura
+ */
 function asigarAsignatura(value) {
     asignaturaActual = horario[timeNow.getDay()][value];
-    asignaturaSiguiente = value == 6 ? "Casa" : horario[timeNow.getDay()][value + 1];
-}
+    asignaturaSiguiente = value == 6
+        ? "Casa"
+        : horario[timeNow.getDay()][value + 1];
 
-//Devuelve la asignatura actual
-function getAsignaturaActual() {
-    return asignaturaActual;
-}
-
-//Devuelve la asignatura siguiente
-function getAsignaturaSiguiente() {
-    return asignaturaSiguiente;
-}
-
-//Devuelve cuanto tiempo falta para que termine la clase actual en porcentaje
-function timeRest(endTime) {
-    return new Date().getSeconds() * 100 / 60;
+    asignaturaAnterior = value == 0
+        ? "Casa"
+        : horario[timeNow.getDay()][value - 1];
 }

@@ -1,11 +1,12 @@
-const version = "v1.2";
-
+const version = "v1.3.0";
 const ratio = 16 / 9;
-
 const fps = 30;
 
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
 const DI = "Interfaces";
-const SGE = "Sistemas de Gestión Empresarial";
+const SGE = "Gestión Empresarial";
 const AD = "Acceso a Datos";
 const PMDM = "Moviles";
 const EIE = "Empresa";
@@ -28,3 +29,4 @@ const horario = [
 const color = ["#000", "#46A2E8", "#46A2E8", "#FF6666", "#FF6666"];
 let asignaturaActual = "Casa";
 let asignaturaSiguiente = "";
+let asignaturaAnterior = "";

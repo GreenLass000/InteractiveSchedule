@@ -1,6 +1,3 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
 setInterval(update, 1 / fps * 1000);
 
 function update() {
@@ -20,11 +17,23 @@ function update() {
 
     //Cuadro asignatura anterior
     ctx.roundRect(
-        windowWidth / 16,
+        (windowWidth - (windowWidth * 5 / 16)),
         windowHeight / 3,
         windowWidth / 4,
         windowHeight / 3,
         20
+    );
+    ctx.fillStyle = "cyan";
+    ctx.stroke();
+    ctx.fill();
+
+    //Cuadro asignatura siguiente
+    ctx.roundRect(
+        windowWidth / 16,
+        windowHeight / 3,
+        windowWidth / 4,
+        windowHeight / 3,
+        windowHeight * .025
     );
     ctx.fillStyle = "cyan";
     ctx.stroke();
@@ -42,41 +51,14 @@ function update() {
     ctx.stroke();
     ctx.fill();
 
-    // //Barra de progreso
-    // ctx.progressBar(
-    //     windowWidth / 8,
-    //     windowHeight / 1.6,
-    //     windowWidth / 4 * 3, windowHeight / 25,
-    //     timeRest("")
-    // );
+    //Barra de progreso
+    ctx.progressBar(
+        windowWidth / 4 + windowWidth * .05,
+        windowHeight / 1.55,
+        windowWidth / 2 - windowWidth * .1,
+        windowHeight / 25,
+        timeRest("")
+    );
 
-    // //Version text
-    // ctx.font = "15px Arial";
-    // ctx.fillStyle = "#000";
-    // ctx.textAlign = "center";
-    // ctx.fillText(
-    //     version,
-    //     15,
-    //     15
-    // );
-
-    // //Asignatura actual
-    // ctx.font = "bold 30px Arial";
-    // ctx.fillStyle = color[3];
-    // ctx.textAlign = "center";
-    // ctx.fillText(
-    //     getAsignaturaActual().toUpperCase(),
-    //     windowWidth / 2,
-    //     windowHeight / 4
-    // );
-
-    // //Asignatura siguiente
-    // ctx.font = "20px Arial";
-    // ctx.fillStyle = color[4];
-    // ctx.textAlign = "center";
-    // ctx.fillText(
-    //     getAsignaturaSiguiente().toUpperCase(),
-    //     windowWidth / 2,
-    //     windowHeight / 2.01
-    // );
+    canvasLogicStart(windowWidth, windowHeight);
 }

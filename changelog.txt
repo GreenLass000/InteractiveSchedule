@@ -1,3 +1,8 @@
+v1.3
+[UPDATE] Optimizacion de código
+[NEW] Redimensioado automatico con relacion de aspecto
+[UPDATE] Rediseño completo de la vista del horario
+
 v1.2
 [FIXED] Asignatura siguiente desaparecía un domingo a las 14:00
 [NEW] Añadido version actual del programa en la esquina
