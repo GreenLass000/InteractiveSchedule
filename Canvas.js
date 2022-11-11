@@ -21,7 +21,7 @@ function update() {
         windowHeight / 3,
         windowWidth / 4,
         windowHeight / 3,
-        20
+        windowHeight * .025
     );
     ctx.fillStyle = "cyan";
     ctx.stroke();
@@ -47,7 +47,7 @@ function update() {
         windowHeight / 2,   //height
         windowHeight * .05  //Radio
     );
-    ctx.fillStyle = color[1];
+    ctx.fillStyle = colors[1];
     ctx.stroke();
     ctx.fill();
 
@@ -57,7 +57,7 @@ function update() {
         windowHeight / 1.55,
         windowWidth / 2 - windowWidth * .1,
         windowHeight / 25,
-        timeRest(endTime)
+        timeRest(startTime, endTime)
     );
 
     canvasLogicStart(windowWidth, windowHeight);

@@ -1,10 +1,11 @@
-document.body.style.backgroundColor = color[0];
-
 setInterval(start, 1 / fps * 1000);
 function start() {
     //--------------console.log(horario--------------
     //Comprueba si una console.log(hora con formato hh:mm esta en un rango de console.log(horas
-    const isBetween = function (time, start, end) {
+    const isBetween = function (time, horaAsignatura) {
+        let asigInicio = asignaturaInicio[horaAsignatura];
+        let asigFin = asignaturaFin[horaAsignatura];
+
         if (time < '00:00' || time > '23:59' || time.substring(3) > '59')
             throw new Error("hora no válida");
         return time >= start && time <= end;
@@ -24,33 +25,26 @@ function start() {
     if (timeNow.getDay() == 0) {
         asignaturaSiguiente = horario[1][0];
     } else if (timeNow.getDay() != 6) {
-        if (isBetween(timeNowFormat, "08:15", "09:05")) {
-            asigarAsignatura(0);
-            endTime = "09:05";
+        if (isBetween(timeNowFormat, 0)) {
+            asigarAsignatura(0, asignaturaInicio[0], asignaturaFin[0]);
         }
-        else if (isBetween(timeNowFormat, "09:05", "10:00")) {
-            asigarAsignatura(1);
-            endTime = "10:00";
+        else if (isBetween(timeNowFormat, 1)) {
+            asigarAsignatura(1, asignaturaInicio[1], asignaturaFin[1]);
         }
-        else if (isBetween(timeNowFormat, "10:00", "10:55")) {
-            asigarAsignatura(2);
-            endTime = "10:55";
+        else if (isBetween(timeNowFormat, 2)) {
+            asigarAsignatura(2, asignaturaInicio[2], asignaturaFin[2]);
         }
-        else if (isBetween(timeNowFormat, "10:55", "11:20")) {
-            asigarAsignatura(3);
-            endTime = "11:20";
+        else if (isBetween(timeNowFormat, 3)) {
+            asigarAsignatura(3, asignaturaInicio[3], asignaturaFin[3]);
         }
-        else if (isBetween(timeNowFormat, "11:20", "12:10")) {
-            asigarAsignatura(4);
-            endTime = "12:10";
+        else if (isBetween(timeNowFormat, 4)) {
+            asigarAsignatura(4, asignaturaInicio[4], asignaturaFin[4]);
         }
-        else if (isBetween(timeNowFormat, "12:10", "13:05")) {
-            asigarAsignatura(5);
-            endTime = "13:05";
+        else if (isBetween(timeNowFormat, 5)) {
+            asigarAsignatura(5, asignaturaInicio[5], asignaturaFin[5]);
         }
-        else if (isBetween(timeNowFormat, "13:05", "14:00")) {
-            asigarAsignatura(6);
-            endTime = "14:00";
+        else if (isBetween(timeNowFormat, 6)) {
+            asigarAsignatura(6, asignaturaInicio[6], asignaturaFin[6]);
         }
         else {
             asignaturaActual = "Casa";
@@ -65,12 +59,14 @@ function start() {
     }
 }
 
+
+
 //Extrae la asignatura del horario partir de la hora
 /**
  * Extrae la asignatura del horario a partir de una posicion y el dia de la semana
  * @param {Number} value Posicion desde donde se extraerá la asignatura
  */
-function asigarAsignatura(value) {
+function asigarAsignatura(value, start, end) {
     asignaturaActual = horario[timeNow.getDay()][value];
     asignaturaSiguiente = value == 6
         ? "Casa"
@@ -79,4 +75,7 @@ function asigarAsignatura(value) {
     asignaturaAnterior = value == 0
         ? "Casa"
         : horario[timeNow.getDay()][value - 1];
+
+    startTime = start;
+    endTime = end;
 }

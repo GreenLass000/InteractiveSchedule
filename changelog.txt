@@ -1,20 +1,24 @@
-v1.3
+v0.4
+[NEW] Cambio del nombr ede las versiones de 1.x a 0.x
+[UPDATE] Barra de tiempo de asignatura restante funcional
+
+v0.3
 [UPDATE] Optimizacion de código
 [NEW] Redimensioado automatico con relacion de aspecto
 [UPDATE] Rediseño completo de la vista del horario
 
-v1.2
+v0.2
 [FIXED] Asignatura siguiente desaparecía un domingo a las 14:00
 [NEW] Añadido version actual del programa en la esquina
 [UPDATE] Cambio en los colores de los textos
 [UPDATE] Cambio en los colores de los cuadros
 
-v1.1
+v0.1
 [UPDATE] Cambio de tamaño en el cuadro de proxima asignatura
 [NEW] Cambio en la vista del horario a redondeado
 [FIXED] Horario dejaba de funcionar pasadas las 23:59
 
-v1.0
+v0.0
 [NEW] Funcionalidad del horario
 [NEW] Texto en las cajas
 [NEW] Cajas grises

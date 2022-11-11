@@ -50,7 +50,7 @@ function getAsignaturaSiguiente() {
  * @param {String} endTime Hora en formato `HH:mm` a la que acaba la asignatura
  * @returns Cuánto tiempo falta para que termine la clase actual en porcentaje
  */
-function timeRest(endTime) {
+function timeRest(startTime, endTime) {
     timeNow = new Date();
     //Recoge la hora actual del sistema en formato hh:mm
     let timeNowFormat = timeNow.toLocaleTimeString('default', {
@@ -59,13 +59,19 @@ function timeRest(endTime) {
     });
 
     let timeRestant = minutesDif(endTime, timeNowFormat);
-    console.log(timeRestant);
-    return new Date().getSeconds() * 100 / 60;
+    let signatureTotal = minutesDif(endTime, startTime);
+
+    console.log(timeRestant + "\n" + signatureTotal + "\n" + 
+    "Porcentaje: " + ((signatureTotal - timeRestant) * 100) / signatureTotal + "%");
+    return ((signatureTotal - timeRestant) * 100) / signatureTotal;
 }
 
 function minutesDif(start, end) {
-    return ((start.split(":")[0] * 60) + start.split(":")[1])
-        - ((end.split(":")[0] * 60) + end.split(":")[1]);
+    let s = start.split(":");
+    let e = end.split(":");
+
+    return ((parseInt(s[0]) * 60) + parseInt(s[1]))
+        - ((parseInt(e[0]) * 60) + parseInt(e[1]));
 }
 
 /**
