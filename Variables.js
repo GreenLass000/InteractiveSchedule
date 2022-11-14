@@ -55,15 +55,18 @@ const horario = [
 
 // [ FondoGeneral, Cuadro1, Cuadro2, Texto1, Texto2, BarraCarga]
 const colors = [
-  "#000000", //Fondo General
-  "#46A2E8", //Fondo Canvas
-  "#46A2E8", //Fondo Barra Progreso
-  "#FF6666", //Asig. Anterior
-  "#FF6666", //Asig. Actual
-  "", //Asig. Siguiente
+  "#f00", //Fondo General
+  "#fa0", //Fondo Canvas
+  "#f00", //Fondo Barra Progreso
+  "#fa0", //Barra de progreso
+  "#f00", //Asig. Anterior
+  "#fa0", //Asig. Actual
+  "#f00", //Asig. Siguiente
+  "#fa0", //Texto asig. Anterior
+  "#f00", //Texto asig. Actual
+  "#fa0", //Texto asig. Siguiente
+  "#f00", //Texto version
 ];
-
-document.body.style.backgroundColor = colors[0];
 
 let asignaturaActual = "Casa";
 let asignaturaSiguiente = "";

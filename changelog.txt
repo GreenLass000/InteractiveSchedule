@@ -1,3 +1,7 @@
+v0.5
+[UPDATE] Mejor asignacion de colores
+[FIXED] Barra de progreso funcional
+
 v0.4
 [NEW] Cambio del nombr ede las versiones de 1.x a 0.x
 [UPDATE] Barra de tiempo de asignatura restante funcional
