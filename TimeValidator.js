@@ -25,31 +25,20 @@ function start() {
   if (timeNow.getDay() == 0) {
     asignaturaSiguiente = horario[1][0];
   } else if (timeNow.getDay() != 6) {
-    if (isBetween(timeNowFormat, 0)) {
-      asigarAsignatura(0);
-    } else if (isBetween(timeNowFormat, 1)) {
-      asigarAsignatura(1);
-    } else if (isBetween(timeNowFormat, 2)) {
-      asigarAsignatura(2);
-    } else if (isBetween(timeNowFormat, 3)) {
-      asigarAsignatura(3);
-    } else if (isBetween(timeNowFormat, 4)) {
-      asigarAsignatura(4);
-    } else if (isBetween(timeNowFormat, 5)) {
-      asigarAsignatura(5);
-    } else if (isBetween(timeNowFormat, 6)) {
-      asigarAsignatura(6);
-    } else {
-      asignaturaActual = "Casa";
-      asignaturaSiguiente =
-        timeNowFormat > "14:00"
-          ? horario[timeNow.getDay() + 1][0]
-          : horario[timeNow.getDay()][0];
+    for (var i = 0; i < 7; i++) {
+      if (isBetween(timeNowFormat, i)) asigarAsignatura(i);
+      else {
+        asignaturaActual = "Casa";
+        asignaturaSiguiente =
+          timeNowFormat > "14:00"
+            ? horario[timeNow.getDay() + 1][0]
+            : horario[timeNow.getDay()][0];
 
-      asignaturaAnterior =
-        timeNowFormat > "14:00"
-          ? horario[timeNow.getDay()][6]
-          : horario[timeNow.getDay() - 1][6];
+        asignaturaAnterior =
+          timeNowFormat > "14:00"
+            ? horario[timeNow.getDay()][6]
+            : horario[timeNow.getDay() - 1][6];
+      }
     }
   }
 }
@@ -66,6 +55,10 @@ function asigarAsignatura(value) {
 
   asignaturaAnterior =
     value == 0 ? "Casa" : horario[timeNow.getDay()][value - 1];
+
+  if (asignaturaActual == null) asignaturaActual = "Casa";
+  if (asignaturaSiguiente == null) asignaturaSiguiente = "Casa";
+  if (asignaturaAnterior == null) asignaturaAnterior = "Casa";
 
   startTime = asignaturaInicio[value];
   endTime = asignaturaFin[value];
