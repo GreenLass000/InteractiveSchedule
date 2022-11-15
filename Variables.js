@@ -53,12 +53,11 @@ const horario = [
   [],
 ];
 
-// [ FondoGeneral, Cuadro1, Cuadro2, Texto1, Texto2, BarraCarga]
 const colors = [
-  "#f00", //Fondo General
-  "#fa0", //Fondo Canvas
-  "#f00", //Fondo Barra Progreso
-  "#fa0", //Barra de progreso
+  "#000", //Fondo General
+  "#000", //Fondo Canvas
+  "#aaa", //Fondo Barra Progreso
+  "#0f0", //Barra de progreso
   "#f00", //Asig. Anterior
   "#fa0", //Asig. Actual
   "#f00", //Asig. Siguiente

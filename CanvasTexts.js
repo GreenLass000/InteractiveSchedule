@@ -1,7 +1,7 @@
 function canvasLogicStart(windowWidth, windowHeight) {
     //Asignatura actual
     ctx.font = "bold 40px Arial";
-    ctx.fillStyle = colors[3];
+    ctx.fillStyle = colors[8];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
@@ -24,25 +24,25 @@ function canvasLogicStart(windowWidth, windowHeight) {
         );
     }
 
-    //Asignatura siguiente
+    //Asignatura anterior
     ctx.font = "20px Arial";
-    ctx.fillStyle = colors[4];
+    ctx.fillStyle = colors[7];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(
-        getShortDay(getAsignaturaSiguiente()),
-        windowWidth / 6 * 5,
+        getShortDay(getAsignaturaAnterior()),
+        windowWidth / 6,
         windowHeight / 2
     );
 
     //Asignatura siguiente
     ctx.font = "20px Arial";
-    ctx.fillStyle = colors[4];
+    ctx.fillStyle = colors[9];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(
-        getShortDay(getAsignaturaAnterior()),
-        windowWidth / 6 ,
+        getShortDay(getAsignaturaSiguiente()),
+        windowWidth / 6 * 5,
         windowHeight / 2
     );
 }

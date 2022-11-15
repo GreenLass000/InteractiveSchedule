@@ -27,7 +27,7 @@ function update() {
     windowHeight / 3,
     windowHeight * 0.025
   );
-  ctx.fillStyle = "cyan";
+  ctx.fillStyle = colors[4];
   ctx.stroke();
   ctx.fill();
 
@@ -39,7 +39,7 @@ function update() {
     windowHeight / 3,
     windowHeight * 0.025
   );
-  ctx.fillStyle = "cyan";
+  ctx.fillStyle = colors[6];
   ctx.stroke();
   ctx.fill();
 
@@ -51,7 +51,7 @@ function update() {
     windowHeight / 2, //height
     windowHeight * 0.05 //Radio
   );
-  ctx.fillStyle = colors[1];
+  ctx.fillStyle = colors[5];
   ctx.stroke();
   ctx.fill();
 
@@ -61,7 +61,8 @@ function update() {
     windowHeight / 1.55,
     windowWidth / 2 - windowWidth * 0.1,
     windowHeight / 25,
-    timeRest(startTime, endTime)
+    timeRest(startTime, endTime),
+    [colors[2], colors[3]]
   );
   canvasLogicStart(windowWidth, windowHeight);
 }
