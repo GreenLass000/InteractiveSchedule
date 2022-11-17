@@ -1,6 +1,6 @@
 function canvasLogicStart(windowWidth, windowHeight) {
     //Asignatura actual
-    ctx.font = "bold 40px Arial";
+    ctx.font = "bold " + windowWidth * .05 + "px Arial";
     ctx.fillStyle = colors[8];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -25,7 +25,7 @@ function canvasLogicStart(windowWidth, windowHeight) {
     }
 
     //Asignatura anterior
-    ctx.font = "20px Arial";
+    ctx.font = windowWidth * .05 + "px Arial";
     ctx.fillStyle = colors[7];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -36,7 +36,7 @@ function canvasLogicStart(windowWidth, windowHeight) {
     );
 
     //Asignatura siguiente
-    ctx.font = "20px Arial";
+    ctx.font = windowWidth * .05 + "px Arial";
     ctx.fillStyle = colors[9];
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";

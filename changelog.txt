@@ -1,3 +1,7 @@
+v0.6
+[FIXED] Font size resizing
+[FIXED] Removed herobrine
+
 v0.5
 [UPDATE] Mejor asignacion de colores
 [FIXED] Barra de progreso funcional

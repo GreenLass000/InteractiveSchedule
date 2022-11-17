@@ -1,4 +1,4 @@
-const version = "v0.4";
+const version = "v0.6";
 const ratio = 16 / 9;
 const fps = 30;
 
