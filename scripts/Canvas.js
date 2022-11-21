@@ -1,8 +1,6 @@
 setInterval(update, (1 / fps) * 1000);
 
 function update() {
-  document.getElementById("version").textContent = version;
-  document.getElementById("version").style.color = colors[10];
   document.body.style.backgroundColor = colors[0];
 
   const windowWidth = sizeScaled(16, 9)[0];
@@ -65,4 +63,7 @@ function update() {
     [colors[2], colors[3]]
   );
   canvasLogicStart(windowWidth, windowHeight);
+
+  document.getElementById("version").textContent = version;
+  document.getElementById("version").style.color = colors[10];
 }

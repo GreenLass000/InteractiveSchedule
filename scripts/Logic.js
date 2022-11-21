@@ -2,7 +2,7 @@
  * 
  * @param {Number} w ancho
  * @param {Number} h alto
- * @returns El tamño del ancho y alto en pixeles basado en la relacion de
+ * @returns El tamaño del ancho y alto en pixeles basado en la relacion de
 aspecto pasada por parametro y el tamaño de la pantalla
  */
 function sizeScaled(w, h) {
@@ -71,6 +71,12 @@ function timeRest(startTime, endTime) {
   return ((signatureTotal - timeRestant) * 100) / signatureTotal;
 }
 
+/**
+ * 
+ * @param {String} start 
+ * @param {String} end 
+ * @returns 
+ */
 function minutesDif(start, end) {
   let s = start.split(":");
   let e = end.split(":");
