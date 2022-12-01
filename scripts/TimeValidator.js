@@ -1,7 +1,7 @@
 setInterval(start, (1 / fps) * 1000);
 function start() {
-  //--------------console.log(horario--------------
-  //Comprueba si una console.log(hora con formato hh:mm esta en un rango de console.log(horas
+  //--------------horario--------------
+  //Comprueba si una hora con formato hh:mm esta en un rango de horas
   const isBetween = function (time, horaAsignatura) {
     let asigInicio = asignaturaInicio[horaAsignatura];
     let asigFin = asignaturaFin[horaAsignatura];
@@ -26,8 +26,12 @@ function start() {
     asignaturaSiguiente = horario[1][0];
   } else if (timeNow.getDay() != 6) {
     for (var i = 0; i < 7; i++) {
-      if (isBetween(timeNowFormat, i)) asigarAsignatura(i);
-      else {
+      console.log(isBetween(timeNowFormat, i));
+      if (isBetween(timeNowFormat, i)) {
+        asigarAsignatura(i);
+        console.log(isBetween(timeNowFormat, i));
+      } /*else {
+        console.log("Asignatura no Asignada");
         asignaturaActual = "Casa";
         asignaturaSiguiente =
           timeNowFormat > "14:00"
@@ -38,9 +42,10 @@ function start() {
           timeNowFormat > "14:00"
             ? horario[timeNow.getDay()][6]
             : horario[timeNow.getDay() - 1][6];
-      }
+      }*/
     }
   }
+  update();
 }
 
 /**
@@ -48,6 +53,7 @@ function start() {
  * @param {Number} value Posicion desde donde se extraerá la asignatura
  */
 function asigarAsignatura(value) {
+  console.log("ASIGNATURA ASIGANDA: " + value);
   asignaturaActual = horario[timeNow.getDay()][value];
   asignaturaSiguiente =
     value == 6 ? "Casa" : horario[timeNow.getDay()][value + 1];
@@ -55,10 +61,24 @@ function asigarAsignatura(value) {
   asignaturaAnterior =
     value == 0 ? "Casa" : horario[timeNow.getDay()][value - 1];
 
-  if (asignaturaActual == null) asignaturaActual = "Casa";
-  if (asignaturaSiguiente == null) asignaturaSiguiente = "Casa";
-  if (asignaturaAnterior == null) asignaturaAnterior = "Casa";
+  if (asignaturaActual == null || asignaturaActual == "undefined")
+    asignaturaActual = "Casa";
+  if (asignaturaSiguiente == null || asignaturaSiguiente == "undefined")
+    asignaturaSiguiente = "Casa";
+  if (asignaturaAnterior == null || asignaturaAnterior == "undefined")
+    asignaturaAnterior = "Casa";
 
   startTime = asignaturaInicio[value];
   endTime = asignaturaFin[value];
+
+  console.log(
+    "Actual: " +
+      asignaturaActual +
+      "\nSiguiente: " +
+      asignaturaSiguiente +
+      "\nAnterior: " +
+      asignaturaAnterior +
+      "\nValue: " +
+      value
+  );
 }

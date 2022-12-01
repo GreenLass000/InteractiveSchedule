@@ -1,5 +1,3 @@
-setInterval(update, (1 / fps) * 1000);
-
 function update() {
   document.body.style.backgroundColor = colors[0];
 
