@@ -53,18 +53,20 @@ const horario = [
   [],
 ];
 
+//Palette by Kalaitos
 const colors = [
   "#000", //Fondo General
-  "#000", //Fondo Canvas
-  "#aaa", //Fondo Barra Progreso
-  "#0f0", //Barra de progreso
-  "#f00", //Asig. Anterior
-  "#fa0", //Asig. Actual
-  "#f00", //Asig. Siguiente
-  "#fa0", //Texto asig. Anterior
-  "#f00", //Texto asig. Actual
-  "#fa0", //Texto asig. Siguiente
-  "#f00", //Texto version
+  "transparent", //Fondo Canvas
+  "#6F7471", //Fondo Barra Progreso
+  "#46C2CB", //Barra de progreso
+  "#6D67E4", //Asig. Anterior
+  "#453C67", //Asig. Actual
+  "#6D67E4", //Asig. Siguiente
+  "#F2F7A1", //Texto asig. Anterior
+  "#F2F7A1", //Texto asig. Actual
+  "#F2F7A1", //Texto asig. Siguiente
+  "#F2F7A1", //Texto version
+  "#00f", //Fondo boton
 ];
 
 let asignaturaActual = "Casa";

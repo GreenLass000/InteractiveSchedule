@@ -97,3 +97,7 @@ function minutesDif(start, end) {
 function getShortDay(signature) {
   return Asignaturas[signature];
 }
+
+function btn_OnClick(e) {
+  window.location.href = "completeSchedule.html";
+}

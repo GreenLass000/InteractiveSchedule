@@ -1,5 +1,6 @@
 function update() {
   document.body.style.backgroundColor = colors[0];
+  document.getElementById("button").style.backgroundColor = colors[11]
 
   const windowWidth = sizeScaled(16, 9)[0];
   const windowHeight = sizeScaled(16, 9)[1];
@@ -12,7 +13,6 @@ function update() {
   //MainBox
   ctx.roundRect(0, 0, windowWidth, windowHeight, windowHeight * 0.1);
   ctx.fillStyle = colors[1];
-  ctx.stroke();
   ctx.fill();
 
   //Cuadro asignatura anterior
@@ -59,7 +59,8 @@ function update() {
     windowHeight / 25,
     timeRest(startTime, endTime),
     [colors[2], colors[3]]
-  );
+  );  
+
   canvasLogicStart(windowWidth, windowHeight);
 
   document.getElementById("version").textContent = version;
