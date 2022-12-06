@@ -61,12 +61,12 @@ function timeRest(startTime, endTime) {
 
   console.log(
     timeRestant +
-      "\n" +
-      signatureTotal +
-      "\n" +
-      "Porcentaje: " +
-      ((signatureTotal - timeRestant) * 100) / signatureTotal +
-      "%"
+    "\n" +
+    signatureTotal +
+    "\n" +
+    "Porcentaje: " +
+    ((signatureTotal - timeRestant) * 100) / signatureTotal +
+    "%"
   );
   return ((signatureTotal - timeRestant) * 100) / signatureTotal;
 }
@@ -98,6 +98,20 @@ function getShortDay(signature) {
   return Asignaturas[signature];
 }
 
-function btn_OnClick(e) {
-  window.location.href = "completeSchedule.html";
+const week = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]
+/**
+ * 
+ * @param {EventHandler} e Evento recogido de OnLoad
+ */
+function createTable(e) {
+  const table = document.getElementById("table");
+  for (let i = 0; i < 8; i++) {
+    const row = table.insertRow(i);
+    for (let j = 0; j < 7; j++) {
+      if (i > 0)
+        row.insertCell().innerHTML = getShortDay(horario[j][i - 1]);
+      else
+        row.insertCell().innerHTML = week[j];
+    }
+  }
 }

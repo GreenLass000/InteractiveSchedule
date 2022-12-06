@@ -2,9 +2,6 @@ const version = "v0.1-alpha pre-release";
 const ratio = 16 / 9;
 const fps = 30;
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
 const DI = "Interfaces";
 const SGE = "Gestión Empresarial";
 const AD = "Acceso a Datos";
@@ -12,6 +9,16 @@ const PMDM = "Móviles";
 const EIE = "Empresa";
 const PSP = "Procesos";
 const REC = "Recreo";
+
+const horario = [
+  [],
+  [DI, DI, SGE, REC, SGE, AD, AD],
+  [PMDM, PMDM, EIE, REC, EIE, SGE, SGE],
+  [PSP, PSP, AD, REC, AD, DI, DI],
+  [DI, DI, PMDM, REC, PMDM, AD, AD],
+  [PSP, EIE, SGE, REC, SGE, PMDM, PMDM],
+  [],
+];
 
 let Asignaturas = new Object();
 Asignaturas[DI] = "DI";
@@ -42,16 +49,6 @@ let asignaturaFin = [
 ];
 
 let timeNow;
-
-const horario = [
-  [],
-  [DI, DI, SGE, REC, SGE, AD, AD],
-  [PMDM, PMDM, EIE, REC, EIE, SGE, SGE],
-  [PSP, PSP, AD, REC, AD, DI, DI],
-  [DI, DI, PMDM, REC, PMDM, AD, AD],
-  [PSP, EIE, SGE, REC, SGE, PMDM, PMDM],
-  [],
-];
 
 //Palette by Kalaitos
 const colors = [

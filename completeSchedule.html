@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Marcos Navarro">
     <title>Schedule</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="scripts/Variables.js"></script>
+    <script defer src="scripts/Logic.js"></script>
+    <script defer src="scripts/Canvas.js"></script>
+    <script defer src="scripts/CanvasTexts.js"></script>
 </head>
-<body>
-    a
-    <form action="index.html">
-        <input type="submit" value="Volver">
-    </form>
+
+<body onload="createTable();">
+    <div id="return" onclick="window.location.href='index.html'"></div>
+    <div id="outerSchedule">
+        <div id="schedule">
+            <table id="table"></table>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
 </body>
+
 </html>

@@ -27,3 +27,37 @@
   width: 35%;
   height: 6vh;
 }
+
+/* Schedule style */
+#return {
+  display: table;
+  width: 5rem;
+  height: 3vh;
+  background-color: black;
+}
+
+#outerSchedule {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#schedule {
+  display: table;
+  width: 70%;
+  height: 10vh;
+  margin: 0 auto;
+  
+}
+
+#table {
+  width: 100%;
+  height: 10vh;
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}
