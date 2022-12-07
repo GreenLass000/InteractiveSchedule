@@ -12,10 +12,13 @@
     <script defer src="scripts/Logic.js"></script>
     <script defer src="scripts/Canvas.js"></script>
     <script defer src="scripts/CanvasTexts.js"></script>
+    <script defer src="scripts/Style.js"></script>
 </head>
 
-<body onload="createTable();">
-    <div id="return" onclick="window.location.href='index.html'"></div>
+<body id="scheduleBody" onload="createTable();">
+    <div id="outer">
+        <div id="return" onclick="window.location.href='index.html'"></div>
+    </div>
     <div id="outerSchedule">
         <div id="schedule">
             <table id="table"></table>

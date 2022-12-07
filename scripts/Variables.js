@@ -10,14 +10,15 @@ const EIE = "Empresa";
 const PSP = "Procesos";
 const REC = "Recreo";
 
+const week = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
 const horario = [
-  [],
+  [,,,,,,],
   [DI, DI, SGE, REC, SGE, AD, AD],
   [PMDM, PMDM, EIE, REC, EIE, SGE, SGE],
   [PSP, PSP, AD, REC, AD, DI, DI],
   [DI, DI, PMDM, REC, PMDM, AD, AD],
   [PSP, EIE, SGE, REC, SGE, PMDM, PMDM],
-  [],
+  [,,,,,,],
 ];
 
 let Asignaturas = new Object();
@@ -49,22 +50,6 @@ let asignaturaFin = [
 ];
 
 let timeNow;
-
-//Palette by Kalaitos
-const colors = [
-  "#000", //Fondo General
-  "transparent", //Fondo Canvas
-  "#6F7471", //Fondo Barra Progreso
-  "#46C2CB", //Barra de progreso
-  "#6D67E4", //Asig. Anterior
-  "#453C67", //Asig. Actual
-  "#6D67E4", //Asig. Siguiente
-  "#F2F7A1", //Texto asig. Anterior
-  "#F2F7A1", //Texto asig. Actual
-  "#F2F7A1", //Texto asig. Siguiente
-  "#F2F7A1", //Texto version
-  "#00f", //Fondo boton
-];
 
 let asignaturaActual = "Casa";
 let asignaturaSiguiente = "";

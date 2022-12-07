@@ -98,7 +98,6 @@ function getShortDay(signature) {
   return Asignaturas[signature];
 }
 
-const week = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]
 /**
  * 
  * @param {EventHandler} e Evento recogido de OnLoad
@@ -108,10 +107,13 @@ function createTable(e) {
   for (let i = 0; i < 8; i++) {
     const row = table.insertRow(i);
     for (let j = 0; j < 7; j++) {
+      let cell = row.insertCell();
       if (i > 0)
-        row.insertCell().innerHTML = getShortDay(horario[j][i - 1]);
+        cell.innerHTML =
+          horario[j][i - 1] == undefined ? "" : getShortDay(horario[j][i - 1]);
       else
-        row.insertCell().innerHTML = week[j];
+        cell.innerHTML = week[j];
+      cell.style.borderColor = colors[14];
     }
   }
 }

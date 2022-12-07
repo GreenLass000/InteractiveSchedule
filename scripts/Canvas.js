@@ -2,9 +2,6 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 function update() {
-  document.body.style.backgroundColor = colors[0];
-  document.getElementById("button").style.backgroundColor = colors[11]
-
   const windowWidth = sizeScaled(16, 9)[0];
   const windowHeight = sizeScaled(16, 9)[1];
 
