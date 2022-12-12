@@ -1,16 +1,5 @@
 setInterval(start, (1 / fps) * 1000);
 function start() {
-  //--------------horario--------------
-  //Comprueba si una hora con formato hh:mm esta en un rango de horas
-  const isBetween = function (time, horaAsignatura) {
-    let asigInicio = horas[horaAsignatura];
-    let asigFin = horas[horaAsignatura + 1];
-
-    if (time < "00:00" || time > "23:59" || time.substring(3) > "59")
-      throw new Error("hora no válida");
-    return time >= asigInicio && time <= asigFin;
-  };
-
   // let timeNow = new Date('November 15, 2022 12:00:00');
   // let timeNowFormat = "11:00";
 
@@ -28,9 +17,10 @@ function start() {
     for (var i = 0; i < 7; i++) {
       if (isBetween(timeNowFormat, i)) {
         asigarAsignatura(i);
-      } else {
-        asigarAsignatura(-1);
       }
+      // else {
+      //   asigarAsignatura(-1);
+      // }
     }
   }
   update();
@@ -49,12 +39,9 @@ function asigarAsignatura(value) {
     asignaturaAnterior =
       value == 0 ? "Casa" : horario[timeNow.getDay()][value - 1];
 
-    if (asignaturaActual == null || asignaturaActual == "undefined")
-      asignaturaActual = "Casa";
-    if (asignaturaSiguiente == null || asignaturaSiguiente == "undefined")
-      asignaturaSiguiente = "Casa";
-    if (asignaturaAnterior == null || asignaturaAnterior == "undefined")
-      asignaturaAnterior = "Casa";
+    // asignaturaActual = isUndefined(asignaturaActual, "Casa");
+    // asignaturaAnterior = isUndefined(asignaturaAnterior, "Casa");
+    // asignaturaSiguiente = isUndefined(asignaturaSiguiente, "Casa");
 
     startTime = horas[value];
     endTime = horas[value + 1];
@@ -65,12 +52,27 @@ function asigarAsignatura(value) {
 
   console.log(
     "Actual: " +
-    asignaturaActual +
-    "\nSiguiente: " +
-    asignaturaSiguiente +
-    "\nAnterior: " +
-    asignaturaAnterior +
-    "\nValue: " +
-    value
+      asignaturaActual +
+      "\nSiguiente: " +
+      asignaturaSiguiente +
+      "\nAnterior: " +
+      asignaturaAnterior +
+      "\nValue: " +
+      value
   );
+}
+
+/**
+ *
+ * @param {String} time Hora en formato HH:mm
+ * @param {int} horaAsignatura Hora de la asignatura, *primera hora*, *segunda hora*.
+ * @returns *true* si *time* se encuentra en el rango de horas especificado por la *horaAsignatura*
+ */
+function isBetween(time, horaAsignatura) {
+  let asigInicio = horas[horaAsignatura];
+  let asigFin = horas[horaAsignatura + 1];
+
+  if (time < "00:00" || time > "23:59" || time.substring(3) > "59")
+    throw new Error("hora no válida");
+  return time >= asigInicio && time <= asigFin;
 }
