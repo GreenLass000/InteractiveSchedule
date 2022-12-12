@@ -60,9 +60,9 @@ function timeRest(startTime, endTime) {
   let signatureTotal = minutesDif(endTime, startTime);
 
   console.log(
-    timeRestant +
+    "Tiempo restante: " + timeRestant +
     "\n" +
-    signatureTotal +
+    "Tiempo total: " + signatureTotal +
     "\n" +
     "Porcentaje: " +
     ((signatureTotal - timeRestant) * 100) / signatureTotal +
@@ -100,19 +100,29 @@ function getShortDay(signature) {
 
 /**
  * 
+ * @param {Object} compare Elemento al que se le comparara undefined
+ * y lo que devolvera si result es undefined
+ * @param {Object} result Elemento que devolvera si no es undefined
+ * @returns "" si es undefined, de lo contrario *result*,
+ * si no se asigna valor a *result*, cogerá por defecto el valor de *compare*
+ */
+function isUndefined(compare, result) {
+  let r = result || compare;
+  return compare == undefined ? "" : r;
+}
+
+/**
+ * 
  * @param {EventHandler} e Evento recogido de OnLoad
  */
 function createTable(e) {
   const table = document.getElementById("table");
   for (let i = 0; i < 8; i++) {
     const row = table.insertRow(i);
-    for (let j = 0; j < 7; j++) {
+    for (let j = 0; j < 6; j++) {
       let cell = row.insertCell();
-      if (i > 0)
-        cell.innerHTML =
-          horario[j][i - 1] == undefined ? "" : getShortDay(horario[j][i - 1]);
-      else
-        cell.innerHTML = week[j];
+      cell.innerHTML = i < 1 ? week[j] :
+        j == 0 ? "" + horas[i - 1] + " - " + horas[i] : isUndefined(horario[j][i - 1], getShortDay(horario[j][i - 1]));
       cell.style.borderColor = colors[14];
     }
   }

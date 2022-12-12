@@ -1,4 +1,4 @@
-const version = "v0.1-alpha pre-release";
+const version = "v0.2";
 const ratio = 16 / 9;
 const fps = 30;
 
@@ -10,15 +10,14 @@ const EIE = "Empresa";
 const PSP = "Procesos";
 const REC = "Recreo";
 
-const week = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+const week = ["Hora", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
 const horario = [
-  [,,,,,,],
+  [, , , , , ,],
   [DI, DI, SGE, REC, SGE, AD, AD],
   [PMDM, PMDM, EIE, REC, EIE, SGE, SGE],
   [PSP, PSP, AD, REC, AD, DI, DI],
   [DI, DI, PMDM, REC, PMDM, AD, AD],
-  [PSP, EIE, SGE, REC, SGE, PMDM, PMDM],
-  [,,,,,,],
+  [PSP, EIE, SGE, REC, SGE, PMDM, PMDM]
 ];
 
 let Asignaturas = new Object();
@@ -30,24 +29,8 @@ Asignaturas[EIE] = "EIE";
 Asignaturas[PSP] = "PSP";
 Asignaturas[REC] = "REC";
 
-let asignaturaInicio = [
-  "08:15",
-  "09:05",
-  "10:00",
-  "10:55",
-  "11:20",
-  "12:10",
-  "13:05",
-];
-let asignaturaFin = [
-  "09:05",
-  "10:00",
-  "10:55",
-  "11:20",
-  "12:10",
-  "13:05",
-  "14:00",
-];
+let horas = ["08:15", "09:05", "10:00", "10:55",
+  "11:20", "12:10", "13:05", "14:00"];
 
 let timeNow;
 

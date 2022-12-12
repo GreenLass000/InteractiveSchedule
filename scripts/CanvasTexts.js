@@ -16,21 +16,13 @@ function canvasLogicStart(windowWidth, windowHeight) {
     ctx.fillText(getAsignaturaActual(), windowWidth / 2, windowHeight / 2);
   }
 
-  console.log(
-    getAsignaturaAnterior() +
-      "\n" +
-      getAsignaturaActual() +
-      "\n" +
-      getAsignaturaSiguiente()
-  );
-
   //Asignatura anterior
   ctx.font = windowWidth * 0.05 + "px Arial";
   ctx.fillStyle = colors[7];
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText(
-    getShortDay(getAsignaturaAnterior()),
+    isUndefined(getShortDay(getAsignaturaAnterior())),
     windowWidth / 6,
     windowHeight / 2
   );
@@ -41,7 +33,7 @@ function canvasLogicStart(windowWidth, windowHeight) {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText(
-    getShortDay(getAsignaturaSiguiente()),
+    isUndefined(getShortDay(getAsignaturaSiguiente())),
     (windowWidth / 6) * 5,
     windowHeight / 2
   );
