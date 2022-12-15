@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Marcos Navarro" />
+    <title>Schedule</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="Marcos Navarro">
-  <title>Schedule</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="style.css">
+    <script defer src="scripts/CanvasRenderingContext2DExtension.js"></script>
+    <script defer src="scripts/Variables.js"></script>
+    <script defer src="scripts/TimeValidator.js"></script>
+    <script defer src="scripts/Logic.js"></script>
+    <script defer src="scripts/Canvas.js"></script>
+    <script defer src="scripts/CanvasTexts.js"></script>
+    <script defer src="scripts/Style.js"></script>
+  </head>
 
-  <script defer src="scripts/CanvasRenderingContext2DExtension.js"></script>
-  <script defer src="scripts/Variables.js"></script>
-  <script defer src="scripts/TimeValidator.js"></script>
-  <script defer src="scripts/Logic.js"></script>
-  <script defer src="scripts/Canvas.js"></script>
-  <script defer src="scripts/CanvasTexts.js"></script>
-  <script defer src="scripts/Style.js"></script>
-</head>
-
-<body id="body">
-  <div>
-    <canvas id="canvas"></canvas>
-  </div>
-  <div id="outer">
-    <div id="button" onclick="window.location.href='completeSchedule.html'"></div>
-  </div>
-  <div id="version"></div>
-</body>
-
+  <body id="body">
+    <div>
+      <canvas id="canvas"></canvas>
+    </div>
+    <div id="outer">
+      <div
+        id="button"
+        onclick="transitionToPage('completeSchedule.html');"
+      ></div>
+    </div>
+    <div id="version"></div>
+  </body>
 </html>

@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Marcos Navarro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Marcos Navarro" />
     <title>Schedule</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <script defer src="scripts/Variables.js"></script>
     <script defer src="scripts/Logic.js"></script>
     <script defer src="scripts/Canvas.js"></script>
     <script defer src="scripts/CanvasTexts.js"></script>
     <script defer src="scripts/Style.js"></script>
-</head>
+  </head>
 
-<body id="scheduleBody" onload="createTable();">
+  <body id="scheduleBody" onload="createTable();">
     <div id="outer">
-        <div id="return" onclick="window.location.href='index.html'"></div>
+      <div id="return" onclick="transitionToPage('index.html');"></div>
     </div>
     <div id="outerSchedule">
-        <div id="schedule">
-            <table id="table"></table>
-        </div>
+      <div id="schedule">
+        <table id="table"></table>
+      </div>
     </div>
     <canvas id="canvas"></canvas>
-</body>
-
+  </body>
 </html>
