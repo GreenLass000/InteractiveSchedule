@@ -133,17 +133,7 @@ function createTable(e) {
           ? "" + horas[i - 1] + " - " + horas[i]
           : isUndefined(horario[j][i - 1], getShortDay(horario[j][i - 1]));
       cell.style.borderColor = colors[14];
+      cell.style.width = "10%";
     }
   }
 }
-
-window.transitionToPage = function (href) {
-  document.querySelector("body").style.opacity = 0;
-  setTimeout(function () {
-    window.location.href = href;
-  }, 500);
-};
-
-document.addEventListener("DOMContentLoaded", function (event) {
-  document.querySelector("body").style.opacity = 1;
-});

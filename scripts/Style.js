@@ -14,12 +14,23 @@ const colors = [
   "white", //Fondo boton a horario completo       11
 
   //Horario completo
-  "white", //Fondo General                        12
+  "black", //Fondo General                        12
   "black", //Boton volver                         13
   "black", //Borde celdas                         14
 ];
 
-document.getElementById("body").style.backgroundColor = colors[0];
-document.getElementById("button").style.backgroundColor = colors[11];
-// document.getElementById("scheduleBody").style.backgroundColor = colors[12];
+// document.getElementById("button").style.backgroundColor = colors[11];
 // document.getElementById("return").style.backgroundColor = colors[13];
+
+/**
+ *
+ * @param {Integer} index indice de colors
+ * @param {String} hex color en hexadecimal
+ * @returns el color que va a aparacer
+ */
+function getColor(index) {
+  return colors[index];
+}
+
+root.style.setProperty("--index-bg-color", getColor(0));
+root.style.setProperty("--schedule-bg-color", getColor(12));

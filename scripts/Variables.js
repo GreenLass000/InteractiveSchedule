@@ -48,3 +48,5 @@ let asignaturaAnterior = "";
 
 let endTime = "";
 let startTime = "";
+
+let root = document.querySelector(":root");

@@ -1,3 +1,15 @@
+/* Variables */
+:root {
+  --index-bg: transparent;
+  --schedule-bg: transparent;
+  --cell-bg: transparent;
+  --cell-text: transparent;
+  --cell-width: auto;
+  --version-text: transparent;
+  --button-bg: transparent;
+  --return-bg: transparent;
+}
+
 /* Disable text selection  */
 * {
   user-select: none;
@@ -11,6 +23,14 @@ body {
   margin: 0;
   height: 100%;
   overflow: hidden;
+}
+
+#scheduleBody {
+  background-color: var(--schedule-bg);
+}
+
+#body {
+  background-color: var(--index-bg);
 }
 
 #version {
